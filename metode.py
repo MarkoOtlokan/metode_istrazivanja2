@@ -121,17 +121,17 @@ plt.show()
 ######################################################################################3
 
 
-columns = ['TIME', 'MONEY', 'FUNCTIONALITY', 'QUALITY']
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(20, 10))
-for i, ax in enumerate(axes.flatten()):
-  col = columns[i]
-  ax.pie(col.values, labels=col.index, autopct='%.2f%%')
-  ax.set_title(col.name)
-plt.show();
+#columns = ['TIME', 'MONEY', 'FUNCTIONALITY', 'QUALITY']
+#fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(20, 10))
+#for i, ax in enumerate(axes.flatten()):
+ # col = columns[i]
+  #ax.pie(col.values, labels=col.index, autopct='%.2f%%')
+  #ax.set_title(col.name)
+#plt.show();
 
 
 
-print('-------priority_stack_time-----------')
+'''print('-------priority_stack_time-----------')
 priority_stack_time = survey['priority_stack_time'].value_counts()
 print(priority_stack_time.sort_values(ascending=False))
 print('\n-------priority_stack_money-----------------')
@@ -157,7 +157,7 @@ print("WM - money: " + str(((priority_stack_money[3] * 4) + (priority_stack_mone
 print("WM - functionality: " + str(((priority_stack_functionality[0] * 4) + (priority_stack_functionality[1] * 3) + (priority_stack_functionality[2] * 2) + priority_stack_functionality[3])/160))
 print("WM - quality: " + str(((priority_stack_quality[2] * 4) + (priority_stack_quality[1] * 3) + (priority_stack_quality[3] * 2) + priority_stack_quality[0])/160))
 
-
+'''
 
 survey.columns
 
