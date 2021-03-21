@@ -79,19 +79,19 @@ plt.show()
 
 
 print('-------delivery_time_opinion-----------')
-delivery_time_opinion = survey['delivery_time_opinion'].value_counts()
-print(delivery_time_opinion)
-print('\n-------finance_opinion-----------------')
-finance_opinion = survey['finance_opinion'].value_counts()
-print(finance_opinion)
-print('\n------functionality_opinion-----------')
-functionality_opinion = survey['functionality_opinion'].value_counts()
-print(functionality_opinion)
-print('\n-------delivery_quality_opinion--------')
-delivery_quality_opinion = survey['delivery_quality_opinion'].value_counts()
-print(delivery_quality_opinion)
+TIME = survey['TIME'].value_counts()
+print(TIME)
+print('\n-------MONEY-----------------')
+MONEY = survey['MONEY'].value_counts()
+print(MONEY)
+print('\n------FUNCTIONALITY-----------')
+FUNCTIONALITY = survey['FUNCTIONALITY'].value_counts()
+print(FUNCTIONALITY)
+print('\n-------QUALITY--------')
+QUALITY = survey['QUALITY'].value_counts()
+print(QUALITY)
 
-columns = ['delivery_time_opinion', 'finance_opinion', 'functionality_opinion', 'delivery_quality_opinion']
+columns = ['TIME', 'MONEY', 'FUNCTIONALITY', 'QUALITY']
 fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(30, 10))
 for i, col in enumerate(columns):
   sns.countplot(x=survey[col],ax=axes[i//2, i%2])
@@ -99,27 +99,32 @@ plt.show();
 
 
 
-print('-------priority_stack_time-----------')
-priority_stack_time = survey['priority_stack_time'].value_counts()
-print(priority_stack_time.sort_values(ascending=False))
-print('\n-------priority_stack_money-----------------')
-priority_stack_money = survey['priority_stack_money'].value_counts()
-print(priority_stack_money.sort_values(ascending=False))
-print('\n------priority_stack_functionality-----------')
-priority_stack_functionality = survey['priority_stack_functionality'].value_counts()
-print(priority_stack_functionality.sort_values(ascending=False))
-print('\n-------priority_stack_quality--------')
-priority_stack_quality = survey['priority_stack_quality'].value_counts()
-print(priority_stack_quality.sort_values(ascending=False))
+print('-------priority_time-----------')
+priority_time = survey['TIME'].value_counts()
+print(priority_time.sort_values(ascending=False))
+print('\n-------priority_money-----------------')
+priority_money = survey['MONEY'].value_counts()
+print(priority_money.sort_values(ascending=False))
+print('\n------priority_functionality-----------')
+priority_functionality = survey['FUNCTIONALITY'].value_counts()
+print(priority_functionality.sort_values(ascending=False))
+print('\n-------priority_quality--------')
+priority_quality = survey['QUALITY'].value_counts()
+print(priority_quality.sort_values(ascending=False))
 
-columns = ['priority_stack_time', 'priority_stack_money', 'priority_stack_functionality', 'priority_stack_quality']
+columns = ['TIME', 'MONEY', 'FUNCTIONALITY', 'QUALITY']
 fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(30, 10))
 for i, col in enumerate(columns):
   sns.countplot(x=survey[col],ax=axes[i//2, i%2])
 plt.show()
 
-columns = ['priority_stack_time', 'priority_stack_money', 'priority_stack_functionality', 'priority_stack_quality']
-fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(30, 10))
-for i, col in enumerate(columns):
-  sns.countplot(x=survey[col],ax=axes[i//2, i%2])
-plt.show()
+######################################################################################3
+
+
+columns = [delivery_time_opinion, finance_opinion, functionality_opinion, delivery_quality_opinion]
+fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(20, 10))
+for i, ax in enumerate(axes.flatten()):
+  col = columns[i]
+  ax.pie(col.values, labels=col.index, autopct='%.2f%%')
+  ax.set_title(col.name)
+plt.show();
